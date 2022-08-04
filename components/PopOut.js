@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import IconButton from './PlusButton'
-
+import CustomDrawer from './CustomDrawer'
 const Drawer = createDrawerNavigator();
 
 
@@ -23,8 +23,7 @@ function Feed() {
 const PopOut = () => {
   return (
 
-    <Drawer.Navigator useLegacyImplementation >
-      {/* screenOptions={{headerShown: false}}   */}
+    <Drawer.Navigator useLegacyImplementation drawerContent={props => <CustomDrawer {...props}/>}>
       <Drawer.Screen name="Feed" component={Feed}  />
     
     </Drawer.Navigator>
