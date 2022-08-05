@@ -1,21 +1,27 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import IconButton from './PlusButton'
+
+import PlusButton from './PlusButton'
 import CustomDrawer from './CustomDrawer'
+import NavBar from './NavBar';
+
 const Drawer = createDrawerNavigator();
 
 
-function Feed() {
+function Home({ navigation }) {
   return (
-    <View style={{ display:'flex', flexGrow: 1, backgroundColor:'black', }}>
-      <View style={{ flexGrow: 1}}>
-        <Text style={{ color:'white'}} >Feed Screen</Text>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <View style={{ display:'flex', flexGrow: 1, backgroundColor:'black', }}>
+        <NavBar navigation={navigation}/>
+        <View style={{ flexGrow: 1}}>
+          <Text style={{ color:'white'}} >Feed Screen</Text>
+        </View>
+        <View style={{ display:'flex', alignItems:'flex-end', }}>
+          <PlusButton/>
+        </View>
       </View>
-      <View style={{ display:'flex', alignItems:'flex-end', }}>
-        <IconButton/>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -23,8 +29,9 @@ function Feed() {
 const PopOut = () => {
   return (
 
-    <Drawer.Navigator useLegacyImplementation drawerContent={props => <CustomDrawer {...props}/>}>
-      <Drawer.Screen name="Feed" component={Feed}  />
+    <Drawer.Navigator useLegacyImplementation drawerContent={props => <CustomDrawer {...props} />} 
+    screenOptions={{headerShown:false, swipeEdgeWidth:225}}>
+      <Drawer.Screen name="Home" component={Home}  />
     
     </Drawer.Navigator>
   )

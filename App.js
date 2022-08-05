@@ -1,8 +1,10 @@
 import 'react-native-gesture-handler';
 import { StyleSheet, Text, View } from 'react-native';
-import PopOut from './components/PopOut';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import PopOut from './components/PopOut';
+
 
 
 export default function App() {
