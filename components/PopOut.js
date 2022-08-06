@@ -1,29 +1,10 @@
 import * as React from 'react';
-import { View, Text, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import PlusButton from './PlusButton'
 import CustomDrawer from './CustomDrawer'
-import NavBar from './NavBar';
-
+import HomeScreen from '../screens/HomeScreen'
+import NoteScreen from '../screens/NoteScreen'
 const Drawer = createDrawerNavigator();
-
-
-function Home({ navigation }) {
-  return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View style={{ display:'flex', flexGrow: 1, backgroundColor:'black', }}>
-        <NavBar navigation={navigation}/>
-        <View style={{ flexGrow: 1}}>
-          <Text style={{ color:'white'}} >Feed Screen</Text>
-        </View>
-        <View style={{ display:'flex', alignItems:'flex-end', }}>
-          <PlusButton/>
-        </View>
-      </View>
-    </TouchableWithoutFeedback>
-  );
-}
 
 
 const PopOut = () => {
@@ -31,8 +12,8 @@ const PopOut = () => {
 
     <Drawer.Navigator useLegacyImplementation drawerContent={props => <CustomDrawer {...props} />} 
     screenOptions={{headerShown:false, swipeEdgeWidth:225}}>
-      <Drawer.Screen name="Home" component={Home}  />
-    
+      <Drawer.Screen name="Home" component={HomeScreen}  />
+      <Drawer.Screen name="NoteScreen" component={NoteScreen} />
     </Drawer.Navigator>
   )
 }
