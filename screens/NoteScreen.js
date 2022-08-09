@@ -11,12 +11,12 @@ const Note = ( {navigation}) => {
             onPress={() => navigation.goBack()}/>
         </View>
         <View style={{padding:20}}>
-          <TextInput placeholder="Title" style={{color:'white', opacity:.5, fontSize:30 }}
-          placeholderTextColor='white'
+          <TextInput placeholder="Title" style={{color:'white', fontSize:30 }}
+          placeholderTextColor='#919090'
           />
           <TextInput placeholder="Note" 
-          style={{color:'white', opacity:.5, fontSize:15}}
-          placeholderTextColor='white'
+          style={{color:'white', fontSize:15}}
+          placeholderTextColor='#919090'
           
           />
         </View>
