@@ -1,19 +1,32 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Button } from 'react-native'
+import { useIsFocused } from '@react-navigation/native';
 
 const NotesList = () => {
     const [notes, setNotes] = React.useState([])
-    useEffect (() => { 
-        Notes();
+    const isFocused = useIsFocused();
+
+    useEffect (() => {         
+        if (isFocused){
+            Notes();
+        }
+        
     })
     
     // grabs data and stores array of object (notes) into global hook
     const Notes = async() => {
         const result = await AsyncStorage.getItem('notes');
         if (result) setNotes(JSON.parse(result));
+    }
+
+    // temporary function to clear notes when needed 
+    const testWork = async() => {
+        await AsyncStorage.clear()
+        setNotes([])
         
     }
+
 
     return (
         <View>
@@ -27,6 +40,8 @@ const NotesList = () => {
                 )
             })
             }
+            <Button onPress={testWork} title='wenis'/>
+
         </View>
         
     )

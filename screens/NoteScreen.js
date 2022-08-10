@@ -1,13 +1,14 @@
 import { View, Text, TextInput, Button } from "react-native"
 import { IconButton } from "react-native-paper"
-import React from 'react'
+import React, { useEffect } from 'react'
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import uuid from 'react-native-uuid'
+import { v4 as uuid } from 'uuid';
 
 const Note = ( {navigation}) => {
   const [newNote, onChangeNewNote] = React.useState('');
   const [newTitle, onChangeNewTitle] = React.useState('');
 
+  
   
   const addNote = async () => {
     try{
@@ -16,7 +17,7 @@ const Note = ( {navigation}) => {
       let notes = [];
       if (result !== null) notes = JSON.parse(result);
       // adds the new note
-      const updatedNotes = [...notes, {note: newNote, title: newTitle, id: uuid.v4()}];
+      const updatedNotes = [...notes, {note: newNote, title: newTitle, id: uuid()}];
       await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
     } catch (e) {
       // uh oh
@@ -24,11 +25,7 @@ const Note = ( {navigation}) => {
     }
     console.log('done')
   }
-  // temporary function to clear notes when needed 
-  const testWork = async() => {
-    await AsyncStorage.clear()
-  }
-
+  
   return (
     <View style={{backgroundColor:'#000', flex:1, paddingTop: 20}}>
         <View>
@@ -59,7 +56,6 @@ const Note = ( {navigation}) => {
           />
         </View>
         <Button onPress={addNote} title='update'/>
-        <Button onPress={testWork} title='wenis'/>
 
     </View>
   )
