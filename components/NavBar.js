@@ -10,13 +10,14 @@ const NavBar = ({navigation}) => {
      return (
         <View style={{ paddingTop: 40 }}>
             <View style={{flexWrap:'wrap', flexDirection:'row', alignItems:'flex-start', alignItems:'center'}}>
+                {/* navigates to drawer */}
                 <IconButton
                     icon='menu'
                     color='white'
                     size={35}
                     onPress={() => navigation.openDrawer() }
                 />
-                
+                    {/* search bar for user to quickly find their notes */}
                     <View  style={{margin:10, width:'70%', marginLeft: 20,}}>
                         <Searchbar placeholder='Search' 
                         onChangeText={onChangeSearch} 

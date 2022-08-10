@@ -5,6 +5,7 @@ import { IconButton } from 'react-native-paper'
 
 const CustomDrawer = ( props ) => {
   return (
+    // customizes drawer by adding css and title 
     <View style={{flex:1}}>
         <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor:'#21212E', paddingTop:43, flex: 1}} >
             <View >

@@ -6,10 +6,9 @@ import HomeScreen from '../screens/HomeScreen'
 import NoteScreen from '../screens/NoteScreen'
 const Drawer = createDrawerNavigator();
 
-
+// drawer 
 const PopOut = () => {
   return (
-
     <Drawer.Navigator useLegacyImplementation drawerContent={props => <CustomDrawer {...props} />} 
     screenOptions={{headerShown:false, swipeEdgeWidth:225}}>
       <Drawer.Screen name="Home" component={HomeScreen}  />
