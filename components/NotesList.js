@@ -20,7 +20,7 @@ const NotesList = () => {
             {/* shows notes in reverse order */}
             {notes.slice(0).reverse().map((item) => {
                 return(
-                <View style={{borderColor:'white', borderWidth:1, borderRadius:15, margin:'3%', padding:'2%'}}>
+                <View style={{borderColor:'white', borderWidth:1, borderRadius:15, margin:'3%', padding:'2%'}} key={item.id}>
                     <Text style={{color:'#fff'}}>{item.title}</Text>
                     <Text style={{color:'white'}}>{item.note}</Text>
                 </View>

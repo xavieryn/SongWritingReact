@@ -2,6 +2,7 @@ import { View, Text, TextInput, Button } from "react-native"
 import { IconButton } from "react-native-paper"
 import React from 'react'
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import uuid from 'react-native-uuid'
 
 const Note = ( {navigation}) => {
   const [newNote, onChangeNewNote] = React.useState('');
@@ -15,7 +16,7 @@ const Note = ( {navigation}) => {
       let notes = [];
       if (result !== null) notes = JSON.parse(result);
       // adds the new note
-      const updatedNotes = [...notes, {note: newNote, title: newTitle}];
+      const updatedNotes = [...notes, {note: newNote, title: newTitle, id: uuid.v4()}];
       await AsyncStorage.setItem('notes', JSON.stringify(updatedNotes));
     } catch (e) {
       // uh oh
