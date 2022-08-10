@@ -3,6 +3,7 @@ import { View, Text, TouchableWithoutFeedback, Keyboard } from 'react-native';
 
 import PlusButton from '../components/PlusButton'
 import NavBar from '../components/NavBar';
+import NotesList from '../components/NotesList';
 
   const HomeScreen = ( {navigation }) => {
     return (
@@ -11,7 +12,7 @@ import NavBar from '../components/NavBar';
           <NavBar navigation={navigation}/>
           <View style={{backgroundColor:'black', display:'flex', flexGrow:1, paddingTop:30}}>
             <View style={{ flexGrow: 1 }}>
-              <Text style={{ color:'white'}} >Home Screen</Text>
+              <NotesList/>
             </View>
             <View style={{ display:'flex', alignItems:'flex-end', }}>
               <PlusButton navigation={navigation}/>
