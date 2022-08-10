@@ -12,7 +12,7 @@ const PopOut = () => {
     <Drawer.Navigator useLegacyImplementation drawerContent={props => <CustomDrawer {...props} />} 
     screenOptions={{headerShown:false, swipeEdgeWidth:225}}>
       <Drawer.Screen name="Home" component={HomeScreen}  />
-      <Drawer.Screen name="NoteScreen" component={NoteScreen} />
+      <Drawer.Screen name="NoteScreen" component={NoteScreen} options={{drawerItemStyle:{display:'none'}}} />
     </Drawer.Navigator>
   )
 }

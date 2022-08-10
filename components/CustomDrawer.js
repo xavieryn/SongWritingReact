@@ -4,10 +4,20 @@ import {View, Text} from 'react-native'
 import { IconButton } from 'react-native-paper'
 
 const CustomDrawer = ( props ) => {
+  const filteredProps= {
+    ...props,
+    state: {
+      ...props.state,
+      routeNames: props.state.routeNames.filter(
+        (routeName) => routeName !== 'NoteScreen',
+      )
+    }
+  }
+
   return (
     // customizes drawer by adding css and title 
     <View style={{flex:1}}>
-        <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor:'#21212E', paddingTop:43, flex: 1}} >
+        <DrawerContentScrollView {...filteredProps} contentContainerStyle={{ backgroundColor:'#21212E', paddingTop:43, flex: 1}} >
             <View >
               <View style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', padding: 4}}>
                 <Text style={{color:'#fff', fontSize:20, margin:10}}>Song Writing App</Text>
@@ -32,7 +42,7 @@ const CustomDrawer = ( props ) => {
                 
             </View>
             <View style={{paddingTop:20}}>
-              <DrawerItemList {...props} />
+              <DrawerItemList {...filteredProps} />
             </View>
         </DrawerContentScrollView>
        
