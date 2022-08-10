@@ -22,7 +22,7 @@ export default function App() {
   
     //the empty array thing is confusing so, if result==null, it is empty array (the React.useState was being weird)
     //otherwise show all notes
-    result ? setNotes(JSON.parse(result)) : setNotes([]);
+    result ? setNotes(JSON.parse(result)) : setNotes([{}]);
   
   }
   if (notes.length == 0) {
