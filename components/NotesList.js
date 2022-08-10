@@ -24,7 +24,7 @@ const NotesList = () => {
     const testWork = async() => {
         await AsyncStorage.clear()
         setNotes([])
-        
+             
     }
 
 
@@ -34,8 +34,8 @@ const NotesList = () => {
             {notes.slice(0).reverse().map((item) => {
                 return(
                 <View style={{borderColor:'white', borderWidth:1, borderRadius:15, margin:'3%', padding:'2%'}} key={item.id}>
-                    <Text style={{color:'#fff'}}>{item.title}</Text>
-                    <Text style={{color:'white'}}>{item.note}</Text>
+                    <Text style={{color:'#fff', fontSize:20}}>{item.title}</Text>
+                    <Text numberOfLines={4} style={{color:'white',padding:5}}>{item.note}</Text>
                 </View>
                 )
             })
